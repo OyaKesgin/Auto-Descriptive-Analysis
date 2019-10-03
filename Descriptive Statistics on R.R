@@ -44,6 +44,6 @@ predict(Auto.fit,data.frame(horsepower=98),interval = "confidence")
 predict(Auto.fit,data.frame(horsepower=98),interval = "prediction")
 # Comments: 1. The low p-values of the coefficients indicate statistical significance of the linear fit.
 # 2. The R^2 is reasonably large indicating a good fit
-# 3. As discussed in class, the prediction interval is wider, because it takes into account the irreducible error due to noise.
+# 3. The prediction interval is wider, because it takes into account the irreducible error due to noise.
 # 4. However, looking at the plot you see that there is a nonlinear trend in the data, which is not captured by the linear model.
 # The regression could be improved by using, e.g., a polynomial function.
