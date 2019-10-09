@@ -47,3 +47,54 @@ predict(Auto.fit,data.frame(horsepower=98),interval = "prediction")
 # 3. The prediction interval is wider, because it takes into account the irreducible error due to noise.
 # 4. However, looking at the plot you see that there is a nonlinear trend in the data, which is not captured by the linear model.
 # The regression could be improved by using, e.g., a polynomial function.
+
+# PCA ANALYSIS
+
+autos.data=read.csv("Auto.csv",na.strings="?")
+autos.data2=na.omit(autos.data)
+attach(autos.data2)
+head(autos.data2)
+autos.data3=autos.data2[,c(1,3,4,5,6)]
+head(autos.data2)
+cor(autos.data3) # gives an error- x must be numeric. fixed with the following code.
+cor(AutoData1[sapply(AutoData1, function(x) !is.factor(x))])
+#mpg displacement     weight acceleration
+#mpg           1.0000000   -0.8044430 -0.8317389    0.4222974
+#displacement -0.8044430    1.0000000  0.9331044   -0.5441618
+#weight       -0.8317389    0.9331044  1.0000000   -0.4195023
+#acceleration  0.4222974   -0.5441618 -0.4195023    1.0000000
+
+plot(horsepower,displacement)
+
+#auto.pca=prcomp(autos.data3,scale=TRUE)
+auto.pca=prcomp(AutoData1[sapply(AutoData1, function(x) !is.factor(x))],scale=TRUE)
+auto.pca$rotation
+                #PC1         PC2         PC3         PC4
+#mpg           0.5169159  0.25728453 -0.81220899 -0.08318184
+#displacement -0.5520656 -0.09166076 -0.45155782  0.69492257
+#weight       -0.5413746 -0.28441295 -0.36262152 -0.70322714
+#acceleration  0.3673351 -0.91897348 -0.07012652  0.12503993
+
+pca.var=auto.pca$sdev^2
+pca.var/sum(pca.var)
+# 0.75758374 0.17441545 0.05447005 0.01353076
+head(auto.pca$x)
+
+#PC1       PC2          PC3       PC4
+#1 -1.780207 0.7281919 -0.055993122 0.2097142
+#2 -2.393255 0.6954922  0.001263114 0.3483949
+#3 -1.928546 1.0755143 -0.048998333 0.2938764
+#4 -1.851113 0.6888891  0.194921675 0.2698849
+#5 -1.985063 1.2194140  0.131196094 0.1644668
+#6 -3.425191 0.9100186 -0.579377786 0.2687130
+
+output=data.frame(auto.pca$x)
+plot(output$PC1,output$PC2)
+
+output2=data.frame(output$PC1,output$PC2)
+
+set.seed(10)
+km=kmeans(output2,2,nstart=20)
+plot(output2, col=km$cluster+1)
+points(km$centers,pch=19)
+km
