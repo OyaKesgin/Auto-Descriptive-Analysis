@@ -98,3 +98,30 @@ km=kmeans(output2,2,nstart=20)
 plot(output2, col=km$cluster+1)
 points(km$centers,pch=19)
 km
+                                 K-means clustering with 2 clusters of sizes 158, 239
+
+Cluster means:
+  output.PC1 output.PC2
+1  -1.825529 -0.1893099
+2   1.206835  0.1251505
+
+Clustering vector:
+  [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 1 1 1 1 2 2 2 2 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 1 2 2 2
+ [53] 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1 1 2 1 1 1 1 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 1
+[105] 1 1 1 1 2 2 2 2 2 2 2 1 1 2 2 2 2 1 2 2 1 2 2 1 1 2 2 2 2 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 1 1 1 1
+[157] 1 1 1 1 1 1 1 1 1 1 1 2 2 1 2 2 2 2 1 2 1 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 2 2 2 2 2 2 1 1 1 1 2 2 2 2 2
+[209] 1 2 2 1 1 1 1 1 2 2 2 2 2 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 1 1 1 1 2 2 2 1 1 1 2
+[261] 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 1 2 1 2 2 1 2 2 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 1 2 2 2 2 2 2 2 2 2 2 2 2 2
+[313] 2 2 2 2 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 1
+[365] 1 2 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+
+Within cluster sum of squares by cluster:
+[1] 270.4907 321.7544
+ (between_SS / total_SS =  59.9 %)
+
+Available components:
+
+[1] "cluster"      "centers"      "totss"        "withinss"     "tot.withinss" "betweenss"    "size"        
+[8] "iter"         "ifault"      
+                                 
+           
